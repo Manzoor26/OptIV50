@@ -16,9 +16,9 @@ sh=gs.open("NSEOptionswithIV>50")
 sh.share('anyone', role='reader', expirationTime=None, is_group=False)
 sh.share('YOUR_EMAIL_HERE', role='writer', expirationTime=None, is_group=False)
 try:
-    wsIV = sh.worksheet_by_title("testOptionswithIV>50")
+    wsIV = sh.worksheet_by_title("OptionswithIV>50")
 except:
-    wsIV = sh.add_worksheet(title="testOptionswithIV>50", rows="1", cols="8")
+    wsIV = sh.add_worksheet(title="OptionswithIV>50", rows="1", cols="8")
 values = ['Stock','Type','Strike','LTP','IV','OI','COI','VOL']
 for x in range(8):
     wsIV.update_cell((1,x+1), values[x])
@@ -152,4 +152,4 @@ for stock in fnoStocks:
 result = pd.concat(data_Req)
 
 # Write to gsheet
-.wsIV.set_dataframe(result,'A1', copy_index=False, copy_head=True, fit=True, escape_formulae=False)
+wsIV.set_dataframe(result,'A1', copy_index=False, copy_head=True, fit=True, escape_formulae=False)
